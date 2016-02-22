@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" xmlns:local="*" creationComplete="creationCompleteHandler()">
+<mx:Style>
+Alert
+{
+    color : #000000;
+    titleStyleName : "alertTitle";
+    headerHeight:24;
+    borderThickness: 1;
+    borderAlpha: 0.75;
+    dropShadowEnabled: true;
+    dropShadowColor :#d1ddf7;
+    backgroundColor: #ffffff;
+    cornerRadius :6;
+    borderStyle :solid;
+    headerColors : #9fb9c9, #044972;
+    footerColors : #044972, #ffffff;
+    borderColor  : #9fb9c9;
+
+    modalTransparency: 0.15;
+    modalTransparencyBlur: 1;
+    modalTransparencyColor: #FFFFFF;
+}
+</mx:Style>
+<mx:Script>
+    <![CDATA[
+    	import mx.controls.Alert;
+    	private function creationCompleteHandler():void
+		{
+            login.loginButton.addEventListener(MouseEvent.CLICK, processLogin);
+        }
+        private function processLogin(e:Event):void
+        {
+        	if(validateDialog())
+        	{
+	        	if((login.username.text == "vijay" && login.password.text == "vijay123") || (login.username.text == "prem" && login.password.text == "prem123"))
+	        	{
+	        		login.includeInLayout = false;
+	        		login.visible = false;
+	        		firstPage.visible =true;
+	        		firstPage.includeInLayout = true;
+	        	}else
+	        	{
+	        		Alert.show("Invalid Username/Password","Login Error");
+	        	}
+        	}
+        }
+        public function validateDialog():Boolean
+        {
+        	if(login.username.text == "" || login.password.text == "")
+            {
+                Alert.show("Login name and password are required fields.","Login Error");
+                return false;
+            }
+            return true;
+        }
+    ]]>
+    </mx:Script>
+<mx:VBox height="100%" width="100%" verticalAlign="middle" horizontalAlign="center">
+	<local:Sample_Login id="login"/>
+</mx:VBox>	 
+<mx:VBox id="firstPage" height="100%" width="100%" verticalAlign="middle" horizontalAlign="center" visible="false" includeInLayout="false">
+	<mx:Label text="Login Successful" fontSize="20" fontWeight="bold"/>	
+	<mx:Label text="{'Welcome '+login.username.text}" fontSize="15" fontStyle="italic"/>	
+</mx:VBox>
+</mx:Application>

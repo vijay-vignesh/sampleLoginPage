@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml"	
+	verticalGap="0" autoLayout="true"
+    height="178" width="280" title="Login"
+	horizontalScrollPolicy="off" verticalScrollPolicy="off"
+	disabledOverlayAlpha="0.0" 	modalTransparency="0" modalTransparencyBlur="0">
+	
+    <mx:Script>    
+        <![CDATA[
+        	
+        
+        ]]>               
+    </mx:Script>
+        
+    <mx:VBox width="100%" id="mainBox" color="#000000" 
+    	paddingLeft="10" paddingRight="10" verticalGap="10" paddingTop="10" horizontalAlign="center" height="100%">    		
+
+        <mx:Form id="loginForm" verticalGap="10" defaultButton="{loginButton}" 
+        	paddingTop="9" paddingBottom="9" paddingLeft="0" paddingRight="0"
+        	> 
+
+            <mx:FormItem id="userItem" label="User Name"  fontWeight="bold" required="true">
+                <mx:TextInput id="username" width="160" toolTip="Enter User Name" fontWeight="normal"/>
+            </mx:FormItem>
+
+            <mx:FormItem id="passItem" label="Password"  fontWeight="bold" required="true">
+                <mx:TextInput id="password" displayAsPassword="true"  width="160" toolTip="Enter Password"/>
+            </mx:FormItem>
+        </mx:Form>       
+       
+              
+		<mx:HBox width="100%" horizontalAlign="center" 
+			>
+            <mx:Button id="loginButton" label="Login" toolTip="Press this to login"/>
+        </mx:HBox>
+    </mx:VBox>
+</mx:Panel>
+
